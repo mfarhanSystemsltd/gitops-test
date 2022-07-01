@@ -4,6 +4,8 @@ metadata:
   name: aptos-cashoff
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.mailtrap: hello@gmail.com
 spec:
   destination:
     namespace: tekton-builds ## incase of openshift change this to int
