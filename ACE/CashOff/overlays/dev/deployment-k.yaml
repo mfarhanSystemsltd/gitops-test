@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: tekton-builds
+  name: cashoff-deployment
+  labels:
+    app: cashoff
+spec:
+  replicas: 4
+  template:
+    spec:
+      containers:
+      - name: cashoff
+        image: mfarhan1998/ace-test:test

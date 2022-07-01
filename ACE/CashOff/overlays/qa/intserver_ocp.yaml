@@ -1,0 +1,11 @@
+# apiVersion: appconnect.ibm.com/v1beta1
+# kind: IntegrationServer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-cicd-auto-kustomize
+spec:
+  replicas: 2
+  configurations:
+    - sb-rest2mq-api-server-conf1-kustomize
+    - sb-rest2mq-api-mq-policy-conf1-kustomize

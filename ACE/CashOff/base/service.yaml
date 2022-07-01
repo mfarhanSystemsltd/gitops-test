@@ -1,0 +1,18 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: tekton-builds
+  name: cashoff-service
+spec:
+  selector:
+    app: cashoff
+  ports:
+    - name: http
+      protocol: TCP
+      port: 3002
+      targetPort: 7600
+      nodePort: 30001
+#  externalIPs:
+#    - 192.168.100.95
+  type: NodePort

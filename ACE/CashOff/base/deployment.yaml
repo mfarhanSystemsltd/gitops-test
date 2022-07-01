@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: tekton-builds
+  name: cashoff-deployment
+  labels:
+    app: cashoff
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cashoff
+  template:
+    metadata:
+      labels:
+        app: cashoff
+    spec:
+      containers:
+      - name: cashoff
+        image: mfarhan1998/ace-test:tag
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7600
+      imagePullSecrets:
+      - name: mfarhan-cred

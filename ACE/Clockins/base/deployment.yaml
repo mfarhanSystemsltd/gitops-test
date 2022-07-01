@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: tekton-builds
+  name: clockins-deployment
+  labels:
+    app: clockins
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clockins
+  template:
+    metadata:
+      labels:
+        app: clockins
+    spec:
+      containers:
+      - name: clockins
+        image: mfarhan1998/ace-test:tag
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7600
+      imagePullSecrets:
+      - name: mfarhan-cred

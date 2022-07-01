@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aptos-cashoff
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: tekton-builds ## incase of openshift change this to int
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ACE/CashOff/overlays/qa/
+    repoURL: https://github.com/arslaanmalikSystemsltd/GitOps.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

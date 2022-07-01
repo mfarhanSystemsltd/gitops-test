@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: ace
+        image: mfarhan1998/ace-test:kustomize

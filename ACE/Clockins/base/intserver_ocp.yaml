@@ -1,0 +1,41 @@
+# apiVersion: appconnect.ibm.com/v1beta1
+# kind: IntegrationServer
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-cicd-auto
+  namespace: int
+spec:
+  adminServerSecure: true
+  createDashboardUsers: true
+  designerFlowsOperationMode: disabled
+  enableMetrics: true
+  license:
+    accept: true
+    license: L-APEH-C79J9U
+    use: CloudPakForIntegrationNonProduction
+  pod:
+    containers:
+      runtime:
+        resources:
+          limits:
+            cpu: 300m
+            memory: 350Mi
+          requests:
+            cpu: 300m
+            memory: 300Mi
+        image: >-        
+          407690150649.dkr.ecr.us-east-1.amazonaws.com/openshift-cicd:replaceWithBakedImage
+        imagePullPolicy: Always
+    imagePullSecrets:
+      - name: ecr-entitlement-key
+  replicas: 2
+  router:
+    timeout: 120s
+  service:
+    endpointType: http
+  version: 12.0.3.0-r1
+  barURL: ''  
+  configurations:
+    - sb-rest2mq-api-server-conf1
+    - sb-rest2mq-api-mq-policy-conf1
