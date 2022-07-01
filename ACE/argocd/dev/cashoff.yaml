@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: ACE/CashOff/overlays/dev/
-    repoURL: https://github.com/arslaanmalikSystemsltd/GitOps.git
+    repoURL: https://github.com/mfarhanSystemsltd/gitops-test.git
     targetRevision: main
   syncPolicy:
     automated:
