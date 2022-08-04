@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: test-not
   name: aptos-cashoff
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-annotations:
-  notifications.argoproj.io/subscribe.on-sync-succeeded.slack: test-not
 spec:
   destination:
     namespace: tekton-builds ## incase of openshift change this to int
