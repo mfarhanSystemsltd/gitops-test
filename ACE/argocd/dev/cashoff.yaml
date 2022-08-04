@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: cp4i-cd-sync-status
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: test
   name: aptos-cashoff
   finalizers:
     - resources-finalizer.argocd.argoproj.io
