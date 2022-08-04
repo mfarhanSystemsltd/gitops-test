@@ -4,8 +4,8 @@ metadata:
   name: aptos-cashoff
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: test-not
+annotations:
+  notifications.argoproj.io/subscribe.on-sync-succeeded.slack: test-not
 spec:
   destination:
     namespace: tekton-builds ## incase of openshift change this to int
