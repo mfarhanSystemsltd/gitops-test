@@ -4,8 +4,6 @@ patches:
 - target:
     kind: Deployment
     name: cashoff-deployment
-    labels:
-      app: cashoff
   patch: |-
     - op: replace
       path: /metadata/namespace
