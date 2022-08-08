@@ -1,8 +1,7 @@
 bases:
   - ../../base
 patches:
-  - deployment-k.yaml
-  - target:
+- target:
     kind: Deployment
     name: cashoff-deployment
     labels:
