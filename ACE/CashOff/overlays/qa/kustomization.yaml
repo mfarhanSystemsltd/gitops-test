@@ -1,2 +1,11 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
+bases:
+  - ../../base
+patches:
+  - deployment.yaml
+  - target:
+    kind: Deployment
+    name: cashoff-deployment
+  patch: |-
+    - op: replace
+      path: /metadata/namespace
+      value: qa
